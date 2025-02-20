@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -75,11 +77,18 @@ WSGI_APPLICATION = 'timetracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'task04',
+        'USER': 'task04',
+        'PASSWORD': '123456789',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'OPTIONS': {
+            'client_encoding': 'UTF8',
+        },
+
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -96,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    }
 ]
 
 
